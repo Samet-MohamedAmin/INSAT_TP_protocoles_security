@@ -17,26 +17,33 @@ import re
 """
 
 
-class Chiffrage:
+class Crypting:
     def __init__(self):
         # self.words = Source().words
         self.src = Source()
 
-
-        self.cesar()
-
-
-    def cesar(self, key=3):
+    def __cesar(self, key):
+        """
+        cesar encrypting with:
+        :param key: decalage des lettres
+        """
         begin = ord('A')
         end = ord('Z') + 1
         mapping = {i:(i+key-begin)%(end-begin)+begin for i in range(begin, end)}
-        # print(mapping)
+
         self.src.formatted = self.src.formatted.translate(mapping)
 
-        self.src.print_words()
+    def cesar_encrypt(self, key=3):
+        self.__cesar(key)
 
+    def cesar_decrypt(self, key=-3):
+        self.__cesar(key)
 
     def vegenaire(self):
         pass
 
-Chiffrage()
+
+if __name__ == '__main__':
+    crypt = Crypting()
+    crypt.cesar_decrypt()
+    crypt.src.print_words()
