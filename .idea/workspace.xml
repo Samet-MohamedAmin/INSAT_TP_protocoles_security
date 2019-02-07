@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f73c226-e615-4363-86eb-8a9f2baa7771" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chiffrage.py" beforeDir="false" afterPath="$PROJECT_DIR$/crypting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crypting.py" beforeDir="false" afterPath="$PROJECT_DIR$/crypting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/source.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/source.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="source.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/source.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+            <state relative-caret-position="171">
+              <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -27,11 +26,10 @@
       <file leaf-file-name="crypting.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crypting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="542">
+              <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
-                <element signature="e#367#655#0" />
               </folding>
             </state>
           </provider>
@@ -76,9 +74,9 @@
         <option value="$PROJECT_DIR$/chiffrage.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/source/source.py" />
         <option value="$PROJECT_DIR$/chiffrement.py" />
         <option value="$PROJECT_DIR$/crypting.py" />
+        <option value="$PROJECT_DIR$/source/source.py" />
       </list>
     </option>
   </component>
@@ -191,15 +189,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1600" height="873" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18199112" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18199112" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.4262295" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3292517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.329235" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.329235" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -240,7 +239,6 @@
           <caret lean-forward="true" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-            <element signature="e#367#655#0" />
           </folding>
         </state>
       </provider>
@@ -298,18 +296,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/source.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        <state relative-caret-position="171">
+          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crypting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="542">
+          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-            <element signature="e#367#655#0" />
           </folding>
         </state>
       </provider>

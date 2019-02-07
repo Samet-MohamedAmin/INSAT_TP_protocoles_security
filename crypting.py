@@ -47,3 +47,5 @@ if __name__ == '__main__':
     crypt = Crypting()
     crypt.cesar_decrypt()
     crypt.src.print_words()
+    crypt.src.reorder()
+    crypt.src.print_formatted()

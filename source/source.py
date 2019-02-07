@@ -19,7 +19,9 @@ class Source:
 
     def normalization(self):
         # mapping = [('à', 'a'), ('é', 'e'), ('è', 'e'), ('ç', 'c')]
-        mapping = {ord('à'): ord('a'), ord('é'): ord('e'), ord('è'): ord('e')}
+        # mapping = {ord('à'): ord('a'), ord('é'): ord('e'), ord('è'): ord('e')}
+        mapping_brut = {'à': 'a', 'é': 'e', 'è': 'e', 'ç': 'c'}
+        mapping = {ord(x): ord(y) for x, y in mapping_brut.items()}
 
         self.formatted = self.original.translate(mapping)
 
@@ -36,6 +38,12 @@ class Source:
     def print_words(self):
         if not self.words: self.extract_words()
         print(self.words)
+
+    def print_formatted(self):
+        print(self.formatted)
+
+    def reorder(self):
+        self.formatted = ' '.join(self.words)
 
 
 
