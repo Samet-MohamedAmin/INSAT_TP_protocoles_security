@@ -12,8 +12,5 @@ By:
 ## Demonstration
 
 ## TODO
-- [ ] chiffrage
-    - [ ] veginaire
-- [ ] dechiffrage
-    - [ ] cesar
+- [ ] encrypt / decrypt
     - [ ] veginaire
