@@ -29,7 +29,7 @@ class Crypting:
         """
         begin = ord('A')
         end = ord('Z') + 1
-        mapping = {i:(i+key-begin)%(end-begin)+begin for i in range(begin, end)}
+        mapping = {i: (i+key-begin) % (end-begin)+begin for i in range(begin, end)}
 
         self.src.formatted = self.src.formatted.translate(mapping)
 
@@ -39,7 +39,7 @@ class Crypting:
     def cesar_decrypt(self, key=-3):
         self.__cesar(key)
 
-    def vegenaire(self):
+    def vigenere(self):
         pass
 
 
