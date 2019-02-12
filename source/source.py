@@ -14,7 +14,7 @@ class Source:
         self.normalization()
 
     def read_from_file(self):
-        with open(self.file_name, 'r') as file:
+        with open(self.file_name, 'r', encoding='utf-8') as file:
             self.original = file.read()
 
     def normalization(self):
