@@ -5,6 +5,7 @@ gi.require_version('Gtk', '3.0')
 
 
 from gi.repository import Gtk, Gdk, Gio
+import os
 
 
 SEP = ';'
@@ -72,7 +73,7 @@ class HandlerEvents:
 
 if __name__ == "__main__":
     builder = Gtk.Builder()
-    builder.add_from_file('ui.glade')
+    builder.add_from_file(os.path.join(os.path.dirname(__file__), 'ui.glade'))
     main_window = builder.get_object('main_window')
 
     handler = HandlerEvents(builder)
@@ -84,3 +85,4 @@ if __name__ == "__main__":
 
 
     Gtk.main()
+    
