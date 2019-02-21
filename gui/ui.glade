@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.1 
+
+Copyright (C) 
+
+This file is part of .
+
+ is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with .  If not, see <http://www.gnu.org/licenses/>.
+
+-->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <!-- interface-license-type gplv3 -->
   <object class="GtkImage" id="about_image">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -92,6 +112,8 @@
               <object class="GtkBox" id="box_text_source">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkLabel">
@@ -112,21 +134,11 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSeparator">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkScrolledWindow">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="shadow_type">in</property>
+                    <property name="max_content_height">100</property>
                     <child>
                       <object class="GtkTextView" id="input_text_src">
                         <property name="visible">True</property>
@@ -146,20 +158,21 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSeparator">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">3</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkSeparator">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="pack_type">end</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
                     <child>
                       <object class="GtkButton">
                         <property name="label">gtk-paste</property>
@@ -175,7 +188,7 @@
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="pack_type">end</property>
-                        <property name="position">0</property>
+                        <property name="position">1</property>
                       </packing>
                     </child>
                     <child>
@@ -187,7 +200,7 @@
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="pack_type">end</property>
-                        <property name="position">1</property>
+                        <property name="position">2</property>
                       </packing>
                     </child>
                     <child>
@@ -205,7 +218,7 @@
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="pack_type">end</property>
-                        <property name="position">2</property>
+                        <property name="position">3</property>
                       </packing>
                     </child>
                     <child>
@@ -217,7 +230,7 @@
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="pack_type">end</property>
-                        <property name="position">3</property>
+                        <property name="position">4</property>
                       </packing>
                     </child>
                   </object>
@@ -238,6 +251,8 @@
               <object class="GtkBox" id="box_char_mapping">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkLabel">
@@ -261,17 +276,6 @@ hint: you can use the default mapping</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSeparator">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkScrolledWindow">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -292,38 +296,9 @@ hint: you can use the default mapping</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSeparator">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">3</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <child>
-                      <object class="GtkButton">
-                        <property name="label">gtk-paste</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="relief">none</property>
-                        <property name="use_stock">True</property>
-                        <property name="always_show_image">True</property>
-                        <signal name="clicked" handler="paste_char_mapping" swapped="no"/>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="pack_type">end</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
                     <child>
                       <object class="GtkSeparator">
                         <property name="visible">True</property>
@@ -333,7 +308,7 @@ hint: you can use the default mapping</property>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="pack_type">end</property>
-                        <property name="position">1</property>
+                        <property name="position">0</property>
                       </packing>
                     </child>
                     <child>
@@ -351,7 +326,7 @@ hint: you can use the default mapping</property>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="pack_type">end</property>
-                        <property name="position">2</property>
+                        <property name="position">1</property>
                       </packing>
                     </child>
                     <child>
@@ -363,14 +338,44 @@ hint: you can use the default mapping</property>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
                         <property name="pack_type">end</property>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton">
+                        <property name="label">gtk-paste</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="relief">none</property>
+                        <property name="use_stock">True</property>
+                        <property name="always_show_image">True</property>
+                        <signal name="clicked" handler="paste_char_mapping" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="pack_type">end</property>
                         <property name="position">3</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkSeparator">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="pack_type">end</property>
+                        <property name="position">4</property>
                       </packing>
                     </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="position">4</property>
+                    <property name="position">3</property>
                   </packing>
                 </child>
               </object>
@@ -384,14 +389,15 @@ hint: you can use the default mapping</property>
               <object class="GtkBox" id="box_params">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">5</property>
+                <property name="margin_bottom">5</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkFrame">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="margin_left">10</property>
-                    <property name="margin_right">10</property>
-                    <property name="margin_top">5</property>
                     <property name="margin_bottom">5</property>
                     <property name="label_xalign">0.10000000149011612</property>
                     <property name="shadow_type">in</property>
@@ -453,10 +459,6 @@ hint: you can use the default mapping</property>
                   <object class="GtkFrame">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="margin_left">10</property>
-                    <property name="margin_right">10</property>
-                    <property name="margin_top">1</property>
-                    <property name="margin_bottom">5</property>
                     <property name="label_xalign">0.10000000149011612</property>
                     <property name="shadow_type">in</property>
                     <child>
