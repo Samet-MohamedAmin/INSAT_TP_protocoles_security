@@ -1,15 +1,14 @@
-from source.source import Source
 import re
 
 
 """
 # chiffrage
-## cezar normal 
+## cezar normal
 ## cezar généralisé
 ## véginaire
 
 # dechiffrage
-## cezar normal 
+## cezar normal
 ## cezar généralisé
 ## véginaire
 ### key exist
@@ -18,17 +17,17 @@ import re
 
 
 class Crypting:
-    def __init__(self):
+    def __init__(self, src):
         # self.words = Source().words
-        self.src = Source()
+        self.src = src
 
     def __cesar(self, key):
         """
         cesar encrypting with:
         :param key: decalage des lettres
         """
-        begin = ord('A')
-        end = ord('Z') + 1
+        begin = ord('a')
+        end = ord('z') + 1
         mapping = {i: (i+key-begin) % (end-begin)+begin for i in range(begin, end)}
 
         self.src.formatted = self.src.formatted.translate(mapping)
@@ -38,9 +37,6 @@ class Crypting:
 
     def cesar_decrypt(self, key=-3):
         self.__cesar(key)
-
-    def vigenere(self):
-        pass
 
     def vigenere_encrypt(self, key='vigenereencrypt'):
         key = key.upper()
