@@ -611,7 +611,7 @@ hint: you can use the default mapping</property>
                             <items>
                               <item id="0" translatable="yes">cesar_simple</item>
                               <item id="1" translatable="yes">cesar_general</item>
-                              <item id="2" translatable="yes">veginaire</item>
+                              <item id="2" translatable="yes">vigenere</item>
                             </items>
                             <signal name="changed" handler="update_method" swapped="no"/>
                             <child internal-child="entry">

@@ -11,7 +11,7 @@ class Crypting:
             'encrypt': {
                 'cesar_simple': self.cesar_simple_encrypt,
                 'cesar_general': self.cesar_general_encrypt,
-                'veginaire': self.vigenere_encrypt},
+                'vigenere': self.vigenere_encrypt},
             'decrypt': {
                 'cesar_simple': self.cesar_simple_decrypt,
                 'cesar_general': self.cesar_general_decrypt,
@@ -54,7 +54,7 @@ class Crypting:
         self.__cesar(-self.cesar_general_key)
 
     def vigenere_encrypt(self):
-        key = self.vigenere_key.upper()
+        key = self.vigenere_key.lower()
         formatted = self.src.formatted
         encrypted_msg = ''
         index_msg = 0
@@ -62,8 +62,8 @@ class Crypting:
         while index_msg < len(formatted):
             if formatted[index_msg].isalpha():
                 # NOT sure about adding +1 or NOT !!!
-                d = ord(key[(index_msg-j) % len(key)]) - ord('A') + 1
-                encrypted_msg += chr((ord(formatted[index_msg]) - ord('A') + d) % 26 + ord('A'))
+                d = ord(key[(index_msg-j) % len(key)]) - ord('a') + 1
+                encrypted_msg += chr((ord(formatted[index_msg]) - ord('a') + d) % 26 + ord('a'))
             else:
                 j += 1
                 encrypted_msg += formatted[index_msg]
@@ -71,7 +71,7 @@ class Crypting:
         self.src.formatted = encrypted_msg
 
     def vigenere_decrypt(self):
-        key = self.vigenere_key.upper()
+        key = self.vigenere_key.lower()
         formatted = self.src.formatted
         encrypted_msg = ''
         index_msg = 0
@@ -79,8 +79,8 @@ class Crypting:
         while index_msg < len(formatted):
             if formatted[index_msg].isalpha():
                 # NOT sure about adding +1 or NOT !!!
-                d = ord(key[(index_msg - j) % len(key)]) - ord('A') + 1
-                encrypted_msg += chr((ord(formatted[index_msg]) - ord('A') - d) % 26 + ord('A'))
+                d = ord(key[(index_msg - j) % len(key)]) - ord('a') + 1
+                encrypted_msg += chr((ord(formatted[index_msg]) - ord('a') - d) % 26 + ord('a'))
             else:
                 j += 1
                 encrypted_msg += formatted[index_msg]
