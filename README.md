@@ -17,6 +17,6 @@ By:
     - [x] veginaire
 - [x] centerlize source operations
 - [x] change method
-- [x] toggle crypt / decrypt
+- [x] toggle encrypt / decrypt
 - [ ] match parameters
 
