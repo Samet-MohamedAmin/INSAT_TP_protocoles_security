@@ -1,21 +1,6 @@
 import re
 
 
-"""
-# chiffrage
-## cezar normal
-## cezar généralisé
-## véginaire
-
-# dechiffrage
-## cezar normal
-## cezar généralisé
-## véginaire
-### key exist
-### key does not exist
-"""
-
-
 class Crypting:
     def __init__(self, src):
         # self.words = Source().words
@@ -24,14 +9,19 @@ class Crypting:
         self.method = 'cesar_simple'
         self.method_map = {
             'encrypt': {
-                'cesar_simple': self.cesar_encrypt,
-                'cesar_general': self.cesar_encrypt,
+                'cesar_simple': self.cesar_simple_encrypt,
+                'cesar_general': self.cesar_general_encrypt,
                 'veginaire': self.vigenere_encrypt},
             'decrypt': {
-                'cesar_simple': self.cesar_decrypt,
-                'cesar_general': self.cesar_decrypt,
+                'cesar_simple': self.cesar_simple_decrypt,
+                'cesar_general': self.cesar_general_decrypt,
                 'vigenere': self.vigenere_decrypt}
         }
+
+        self.cesar_simple_key = 3
+        self.cesar_general_key = 1
+        self.vigenere_key = 'key'
+
     def say_bla(self):
         print('blaa')
 
@@ -51,14 +41,20 @@ class Crypting:
 
         self.src.formatted = self.src.formatted.translate(mapping)
 
-    def cesar_encrypt(self, key=3):
-        self.__cesar(key)
+    def cesar_simple_encrypt(self):
+        self.__cesar(self.cesar_simple_key)
 
-    def cesar_decrypt(self, key=-3):
-        self.__cesar(key)
+    def cesar_simple_decrypt(self):
+        self.__cesar(-self.cesar_simple_key)
 
-    def vigenere_encrypt(self, key='vigenereencrypt'):
-        key = key.upper()
+    def cesar_general_encrypt(self):
+        self.__cesar(self.cesar_general_key)
+
+    def cesar_general_decrypt(self):
+        self.__cesar(-self.cesar_general_key)
+
+    def vigenere_encrypt(self):
+        key = self.vigenere_key.upper()
         formatted = self.src.formatted
         encrypted_msg = ''
         index_msg = 0
@@ -74,8 +70,8 @@ class Crypting:
             index_msg += 1
         self.src.formatted = encrypted_msg
 
-    def vigenere_decrypt(self, key='vigenereencrypt'):
-        key = key.upper()
+    def vigenere_decrypt(self):
+        key = self.vigenere_key.upper()
         formatted = self.src.formatted
         encrypted_msg = ''
         index_msg = 0

@@ -30,7 +30,6 @@ class Source:
         return self.original
 
     def normalize(self):
-        print('=========== normalize')
         # mapping = [('à', 'a'), ('é', 'e'), ('è', 'e'), ('ç', 'c')]
         # mapping = {ord('à'): ord('a'), ord('é'): ord('e'), ord('è'): ord('e')}
         mapping = {ord(x): ord(y) for x, y in self.char_mapping.items()}

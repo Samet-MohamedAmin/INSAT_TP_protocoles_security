@@ -19,6 +19,8 @@ class HandlerEvents:
         self.result_buffer = self.builder.get_object('result_text').get_buffer()
         self.src = src
         self.crypter = Crypting(self.src)
+        self.builder.get_object('param_vegenaire')\
+                        .set_text(self.crypter.vigenere_key)
 
     def open_about(self, widget):
         about_dialog = self.builder.get_object('about_dialog')
@@ -70,32 +72,47 @@ class HandlerEvents:
         self.update_input(input_id='input_char_mapping', text=text)
         self.char_mapping_updated()
 
+    def set_result_icon(self, object_name, icon_name):
+        self.builder.get_object(object_name).set_from_icon_name(icon_name,
+                                                        Gtk.IconSize.MENU)
+
     def text_src_updated(self):
-        text_src_image = builder.get_object('result_src_image')
-        text_src_image.set_from_icon_name('gtk-yes', Gtk.IconSize.MENU)
+        self.set_result_icon('result_src_image', 'gtk-yes')
         self.src.normalize()
         self.update_result()
 
     def char_mapping_updated(self):
         print('========== char_mapping_updated')
-        char_mapping_image = builder.get_object('result_mapping_image')
         self.src.normalize()
         if self.src.char_mapping:
-            char_mapping_image.set_from_icon_name('gtk-yes', Gtk.IconSize.MENU)
+            self.set_result_icon('result_mapping_image', 'gtk-yes')
             self.update_result()
         else:
-            char_mapping_image.set_from_icon_name('gtk-no', Gtk.IconSize.MENU)
+            self.set_result_icon('result_mapping_image', 'gtk-no')
 
-    def params_vegenaire_changed(self, widget):
-        self.crypter.method = widget.get_text()
+    def param_vegenaire_changed(self, widget):
+        if widget.get_text():
+            self.crypter.vigenere_key = widget.get_text()
+            if self.crypter.method == 'vigenere':
+                self.update_result()
+                self.set_result_icon('result_params_image', 'gtk-yes')
+        else:
+            self.set_result_icon('result_params_image', 'gtk-no')
 
     def crypt_toggled(self, button):
         if button.get_active():
             self.crypter.crypt_type = button.get_label()
             self.update_result()
 
+    def param_cesar_general_changed(self, widget):
+        self.crypter.cesar_general_key = int(widget.get_value())
+        if self.crypter.method == 'cesar_general':
+            self.update_result()
+
     def update_method(self, widget):
         self.crypter.method = self.builder.get_object('input_method').get_text()
+        if self.crypter.method in ['cesar_simple', 'cesar_general']:
+            self.set_result_icon('result_params_image', 'gtk-yes')
         self.update_result()
 
 

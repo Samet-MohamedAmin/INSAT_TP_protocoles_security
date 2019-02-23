@@ -18,5 +18,5 @@ By:
 - [x] centerlize source operations
 - [x] change method
 - [x] toggle encrypt / decrypt
-- [ ] match parameters
+- [x] match parameters
 
