@@ -52,5 +52,5 @@ class Source:
 
     def reorder(self):
         self.formatted = ' '.join(self.words)
-
+        return self.formatted
 

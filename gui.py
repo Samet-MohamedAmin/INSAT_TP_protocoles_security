@@ -95,6 +95,7 @@ class HandlerEvents:
             self.source.print_words()
             crypt = Crypting(self.source)
             crypt.cesar_decrypt()
+            self.update_input(input_id='result_text', text=self.source.reorder())
             # self.source.extract_words()
             # self.source.print_words()
 
