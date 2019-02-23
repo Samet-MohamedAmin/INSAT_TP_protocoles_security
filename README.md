@@ -13,10 +13,10 @@ By:
 ## Demonstration
 
 ## TODO
-- [+] encrypt / decrypt
-    - [+] veginaire
-- [+] centerlize source operations
-- [ ] change method
-- [ ] toggle crypt / decrypt
+- [x] encrypt / decrypt
+    - [x] veginaire
+- [x] centerlize source operations
+- [x] change method
+- [x] toggle crypt / decrypt
 - [ ] match parameters
 

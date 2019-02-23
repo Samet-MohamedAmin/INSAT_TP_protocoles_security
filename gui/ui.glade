@@ -408,6 +408,7 @@ hint: you can use the default mapping</property>
                             <property name="receives_default">False</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
+                            <signal name="toggled" handler="crypt_toggled" swapped="no"/>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
@@ -423,6 +424,7 @@ hint: you can use the default mapping</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
                             <property name="group">encrypt_radio</property>
+                            <signal name="toggled" handler="crypt_toggled" swapped="no"/>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
@@ -606,13 +608,13 @@ hint: you can use the default mapping</property>
                             <property name="popup_fixed_width">False</property>
                             <property name="active_id">0</property>
                             <items>
-                              <item id="0" translatable="yes">cesar simple</item>
-                              <item id="1" translatable="yes">cesar with key</item>
+                              <item id="0" translatable="yes">cesar_simple</item>
+                              <item id="1" translatable="yes">cesar_general</item>
                               <item id="2" translatable="yes">veginaire</item>
                             </items>
-                            <signal name="changed" handler="update_result" swapped="no"/>
+                            <signal name="changed" handler="update_method" swapped="no"/>
                             <child internal-child="entry">
-                              <object class="GtkEntry">
+                              <object class="GtkEntry" id="input_method">
                                 <property name="can_focus">False</property>
                                 <property name="hexpand">False</property>
                                 <property name="editable">False</property>

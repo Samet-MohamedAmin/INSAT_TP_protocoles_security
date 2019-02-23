@@ -13,11 +13,12 @@ SEP = ';'
 END = '.'
 
 class HandlerEvents:
-    def __init__(self, builder, source=Source()):
+    def __init__(self, builder, src=Source()):
         self.builder = builder
         self.clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
         self.result_buffer = self.builder.get_object('result_text').get_buffer()
-        self.source = source
+        self.src = src
+        self.crypter = Crypting(self.src)
 
     def open_about(self, widget):
         about_dialog = self.builder.get_object('about_dialog')
@@ -72,33 +73,35 @@ class HandlerEvents:
     def text_src_updated(self):
         text_src_image = builder.get_object('result_src_image')
         text_src_image.set_from_icon_name('gtk-yes', Gtk.IconSize.MENU)
+        self.src.normalize()
         self.update_result()
 
     def char_mapping_updated(self):
+        print('========== char_mapping_updated')
         char_mapping_image = builder.get_object('result_mapping_image')
-        if self.source.char_mapping:
+        self.src.normalize()
+        if self.src.char_mapping:
             char_mapping_image.set_from_icon_name('gtk-yes', Gtk.IconSize.MENU)
             self.update_result()
         else:
             char_mapping_image.set_from_icon_name('gtk-no', Gtk.IconSize.MENU)
 
     def params_vegenaire_changed(self, widget):
-        print(widget.get_text())
+        self.crypter.method = widget.get_text()
+
+    def crypt_toggled(self, button):
+        if button.get_active():
+            self.crypter.crypt_type = button.get_label()
+            self.update_result()
+
+    def update_method(self, widget):
+        self.crypter.method = self.builder.get_object('input_method').get_text()
+        self.update_result()
+
 
     def update_result(self, *widget):
-        print('update result')
-        print(self.source.original)
-        print('_'*20)
-        if self.source.original:
-            self.source.normalize()
-            self.source.extract_words()
-            self.source.print_words()
-            crypt = Crypting(self.source)
-            crypt.cesar_decrypt()
-            self.update_input(input_id='result_text', text=self.source.reorder())
-            # self.source.extract_words()
-            # self.source.print_words()
-
+        self.crypter.crypt()
+        self.update_input(input_id='result_text', text=self.src.reorder())
 
 if __name__ == "__main__":
     builder = Gtk.Builder()
@@ -112,7 +115,7 @@ if __name__ == "__main__":
                  path_src=os.path.join('source', 'chiffrage_source.txt'))
 
     # load handler events
-    handler = HandlerEvents(builder=builder, source=src)
+    handler = HandlerEvents(builder=builder, src=src)
     builder.connect_signals(handler)
 
     # load default char mapping

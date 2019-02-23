@@ -20,6 +20,25 @@ class Crypting:
     def __init__(self, src):
         # self.words = Source().words
         self.src = src
+        self.crypt_type = 'encrypt'
+        self.method = 'cesar_simple'
+        self.method_map = {
+            'encrypt': {
+                'cesar_simple': self.cesar_encrypt,
+                'cesar_general': self.cesar_encrypt,
+                'veginaire': self.vigenere_encrypt},
+            'decrypt': {
+                'cesar_simple': self.cesar_decrypt,
+                'cesar_general': self.cesar_decrypt,
+                'vigenere': self.vigenere_decrypt}
+        }
+    def say_bla(self):
+        print('blaa')
+
+    def crypt(self):
+        if self.src.original:
+            self.src.normalize()
+            self.method_map[self.crypt_type][self.method]()
 
     def __cesar(self, key):
         """

@@ -30,6 +30,7 @@ class Source:
         return self.original
 
     def normalize(self):
+        print('=========== normalize')
         # mapping = [('à', 'a'), ('é', 'e'), ('è', 'e'), ('ç', 'c')]
         # mapping = {ord('à'): ord('a'), ord('é'): ord('e'), ord('è'): ord('e')}
         mapping = {ord(x): ord(y) for x, y in self.char_mapping.items()}
@@ -44,13 +45,19 @@ class Source:
         self.words = self.formatted.split()
 
     def print_words(self):
-        if not self.words: self.extract_words()
+        print('============ print_words')
+        self.extract_words()
         print(self.words)
+        print('-'*20)
 
     def print_formatted(self):
         print(self.formatted)
 
     def reorder(self):
+        print('============ reorder')
+        self.extract_words()
+        print(self.words)
+        print('-'*20)
         self.formatted = ' '.join(self.words)
         return self.formatted
 
