@@ -27,6 +27,7 @@ class Source:
     def load_text_src_from_file(self):
         with open(self.path_src, 'r', encoding='utf-8') as file:
             self.original = file.read()
+        print(self.original)
         return self.original
 
     def normalize(self):

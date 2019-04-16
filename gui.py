@@ -62,12 +62,12 @@ class HandlerEvents:
             self.update_input(input_id='input_char_mapping', text=text)
             self.char_mapping_updated()
 
-    def paste_text_src(self, widget):
+    def paste_text_src(self, *args):
         text = self.clipboard.wait_for_text()
         self.update_input(input_id='input_text_src', text=text)
         self.text_src_updated(text)
 
-    def paste_char_mapping(self, widget):
+    def paste_char_mapping(self, *args):
         text = self.clipboard.wait_for_text()
         self.update_input(input_id='input_char_mapping', text=text)
         self.char_mapping_updated()
@@ -123,6 +123,14 @@ class HandlerEvents:
 if __name__ == "__main__":
     builder = Gtk.Builder()
     builder.add_from_file(os.path.join('gui','ui.glade'))
+
+    # add styles
+    # css = Gtk.CssProvider()
+    # css.load_from_path('./gui/styles.css')
+    # style_context = Gtk.StyleContext()
+    # style_context.add_provider(
+    #     css,
+    #     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 
     main_window = builder.get_object('main_window')
     main_window.show_all()

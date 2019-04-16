@@ -37,9 +37,8 @@ along with .  If not, see <http://www.gnu.org/licenses/>.
   </object>
   <object class="GtkApplicationWindow" id="main_window">
     <property name="can_focus">False</property>
-    <property name="resizable">False</property>
-    <property name="default_width">455</property>
-    <property name="default_height">250</property>
+    <property name="default_width">450</property>
+    <property name="default_height">240</property>
     <property name="icon_name">dialog-password-symbolic</property>
     <child type="titlebar">
       <object class="GtkHeaderBar">
@@ -91,7 +90,7 @@ along with .  If not, see <http://www.gnu.org/licenses/>.
                 <property name="margin_right">10</property>
                 <property name="label" translatable="yes">** application description ** </property>
                 <property name="justify">center</property>
-                <property name="width_chars">34</property>
+                <property name="width_chars">36</property>
               </object>
               <packing>
                 <property name="name">welcome</property>
@@ -784,7 +783,6 @@ hint: you can use the default mapping</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="wrap_mode">word</property>
-                    <property name="cursor_visible">False</property>
                   </object>
                   <packing>
                     <property name="expand">True</property>

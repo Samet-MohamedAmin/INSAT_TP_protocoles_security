@@ -35,8 +35,7 @@ class Crypting:
         cesar encrypting with:
         :param key: decalage des lettres
         """
-        begin = ord('a')
-        end = ord('z') + 1
+        begin, end = ord('a'), ord('z') + 1
         mapping = {i: (i+key-begin) % (end-begin)+begin for i in range(begin, end)}
 
         self.src.formatted = self.src.formatted.translate(mapping)
@@ -56,19 +55,19 @@ class Crypting:
     def __vigenere(self, direction):
         """
             serves as both encryption and decryption.
-            when direction == 1 => encryption;
+            when direction ==  1 => encryption;
             when direction == -1 => decryption;
         """
+        key, formatted = self.vigenere_key.lower(), self.src.formatted
+        begin, end = ord('a'), ord('z')+1
         encrypted_msg = ''
-        index_msg = j = 0
-        while index_msg < len(self.src.formatted):
-            if self.src.formatted[index_msg].isalpha():
-                d = direction *(ord(self.vigenere_key.lower()[(index_msg-j) % len(self.vigenere_key.lower())]) - ord('a') + 1)
-                encrypted_msg += chr((ord(self.src.formatted[index_msg]) - ord('a') + d) % 26 + ord('a'))
-            else:
-                j += 1
-                encrypted_msg += self.src.formatted[index_msg]
-            index_msg += 1
+        j = 0
+        for index, char in enumerate(formatted):
+            if char.isalpha():
+                d = direction *(ord(key[(index-j) % len(key)]) - begin + 1)
+                char = chr((ord(char) - begin + d) % (end - begin) + begin)
+            else: j += 1
+            encrypted_msg += char
         self.src.formatted = encrypted_msg
 
     def vigenere_encrypt(self):
