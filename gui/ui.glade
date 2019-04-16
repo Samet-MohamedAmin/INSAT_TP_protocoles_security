@@ -819,9 +819,9 @@ hint: you can use the default mapping</property>
     <property name="version">v 2.1</property>
     <property name="comments" translatable="yes">made using GTK3+</property>
     <property name="authors">SAMET MohamedAmin
+BEN OTHMEN Ghassen
 DGHAIES Ahmed
 HARRATH Amel
-BEN OTHMEN Ghassen
 GL4</property>
     <property name="logo_icon_name">dialog-password</property>
     <child>

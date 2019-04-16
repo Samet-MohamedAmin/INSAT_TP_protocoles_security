@@ -53,39 +53,29 @@ class Crypting:
     def cesar_general_decrypt(self):
         self.__cesar(-self.cesar_general_key)
 
-    def vigenere_encrypt(self):
-        key = self.vigenere_key.lower()
-        formatted = self.src.formatted
+    def __vigenere(self, direction):
+        """
+            serves as both encryption and decryption.
+            when direction == 1 => encryption;
+            when direction == -1 => decryption;
+        """
         encrypted_msg = ''
-        index_msg = 0
-        j = 0
-        while index_msg < len(formatted):
-            if formatted[index_msg].isalpha():
-                # NOT sure about adding +1 or NOT !!!
-                d = ord(key[(index_msg-j) % len(key)]) - ord('a') + 1
-                encrypted_msg += chr((ord(formatted[index_msg]) - ord('a') + d) % 26 + ord('a'))
+        index_msg = j = 0
+        while index_msg < len(self.src.formatted):
+            if self.src.formatted[index_msg].isalpha():
+                d = direction *(ord(self.vigenere_key.lower()[(index_msg-j) % len(self.vigenere_key.lower())]) - ord('a') + 1)
+                encrypted_msg += chr((ord(self.src.formatted[index_msg]) - ord('a') + d) % 26 + ord('a'))
             else:
                 j += 1
-                encrypted_msg += formatted[index_msg]
+                encrypted_msg += self.src.formatted[index_msg]
             index_msg += 1
         self.src.formatted = encrypted_msg
 
+    def vigenere_encrypt(self):
+        self.__vigenere(1)
+
     def vigenere_decrypt(self):
-        key = self.vigenere_key.lower()
-        formatted = self.src.formatted
-        encrypted_msg = ''
-        index_msg = 0
-        j = 0
-        while index_msg < len(formatted):
-            if formatted[index_msg].isalpha():
-                # NOT sure about adding +1 or NOT !!!
-                d = ord(key[(index_msg - j) % len(key)]) - ord('a') + 1
-                encrypted_msg += chr((ord(formatted[index_msg]) - ord('a') - d) % 26 + ord('a'))
-            else:
-                j += 1
-                encrypted_msg += formatted[index_msg]
-            index_msg += 1
-        self.src.formatted = encrypted_msg
+        self.__vigenere(-1)
 
 
 
