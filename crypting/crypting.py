@@ -79,7 +79,7 @@ class Crypting:
 
 
 if __name__ == '__main__':
-    crypt = Crypting()
+    crypt = Crypting(None)
     # crypt.cesar_decrypt()
     # crypt.src.print_words()
     # crypt.src.reorder()
