@@ -36,6 +36,9 @@ class Source:
         mapping = {ord(x): ord(y) for x, y in self.char_mapping.items()}
 
         self.formatted = self.original.lower().translate(mapping)
+        print("wow")
+        print(self.formatted)
+        print("wow")
 
         # dots dots dots
         self.formatted = re.sub(r'(\W+)', r' \1 ', self.formatted)

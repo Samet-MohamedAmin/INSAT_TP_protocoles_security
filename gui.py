@@ -54,22 +54,26 @@ class HandlerEvents:
         text = self.open_dlg('open text source')
         if text:
             self.update_input(input_id='input_text_src', text=text)
-            self.text_src_updated(text)
+            self.src.original = text
+            self.text_src_updated()
 
     def open_char_mapping(self, *args):
         text = self.open_dlg('open char mapping')
         if text:
             self.update_input(input_id='input_char_mapping', text=text)
+            self.src.char_mapping = json.loads(text)
             self.char_mapping_updated()
 
     def paste_text_src(self, *args):
         text = self.clipboard.wait_for_text()
         self.update_input(input_id='input_text_src', text=text)
-        self.text_src_updated(text)
+        self.src.original = text
+        self.text_src_updated()
 
     def paste_char_mapping(self, *args):
         text = self.clipboard.wait_for_text()
         self.update_input(input_id='input_char_mapping', text=text)
+        self.src.char_mapping = json.loads(text)
         self.char_mapping_updated()
 
     def set_result_icon(self, object_name, icon_name):

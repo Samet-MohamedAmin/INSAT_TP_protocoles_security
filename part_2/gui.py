@@ -32,11 +32,34 @@ class Handler:
                                                     is_page_complete)
     
     def __cesar(self, text, direction):
+        """
+            serves as both encryption and decryption.
+            when direction ==  1 => encryption;
+            when direction == -1 => decryption;
+        """
         key = direction*3
         begin, end = ord('a'), ord('z') + 1
         mapping = {i: (i+key-begin) % (end-begin)+begin for i in range(begin, end)}
 
         return text.translate(mapping)
+    
+    def __vigenere(self, text, direction):
+        """
+            serves as both encryption and decryption.
+            when direction ==  1 => encryption;
+            when direction == -1 => decryption;
+        """
+        key = self.master_key
+        begin, end = ord('a'), ord('z')+1
+        encrypted_msg = ''
+        j = 0
+        for index, char in enumerate(text):
+            if char.isalpha():
+                d = direction *(ord(key[(index-j) % len(key)]) - begin + 1)
+                char = chr((ord(char) - begin + d) % (end - begin) + begin)
+            else: j += 1
+            encrypted_msg += char
+        return encrypted_msg
 
     def client_1_encrypt(self, *args):
         text = self.builder.get_object('client_1_word').get_text()
@@ -57,6 +80,10 @@ class Handler:
         self.set_current_page_complete(1, True)
         # self.set_current_page_complete(2, True)
     
+    def send_token(self, *args):
+        self.set_current_page_complete(1, True)
+        self.set_current_page_complete(2, True)
+    
     def hash_key(self, *args):
         self.master_key = hashlib.md5(self.key.encode('utf-8')).hexdigest()
         self.set_current_page_complete(1, True)
@@ -66,17 +93,12 @@ class Handler:
     
     def client_2_send_message(self, *args):
         message = self.builder.get_object('client_2_message_unhashed').get_text()
-        self.message_hashed = message
+        self.message_hashed = self.__vigenere(message, 1)
         self.builder.get_object('client_1_message_hashed').set_text(self.message_hashed)
     
     def client_1_unhash(self, *args):
-        message_unhashed = self.message_hashed
+        message_unhashed = self.__vigenere(self.message_hashed, -1)
         self.builder.get_object('client_1_message_unhashed').set_text(message_unhashed)
-
-
-    def send_token(self, *args):
-        self.set_current_page_complete(1, True)
-        self.set_current_page_complete(2, True)
     
     def close(self, *args):
         self.quit()

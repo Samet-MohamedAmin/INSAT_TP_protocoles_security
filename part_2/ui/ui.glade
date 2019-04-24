@@ -60,7 +60,7 @@
             </child>
             <child>
               <object class="GtkButton">
-                <property name="label" translatable="yes">crypt</property>
+                <property name="label" translatable="yes">encrypt</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -190,7 +190,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">label</property>
+                <property name="label" translatable="yes">master key</property>
                 <property name="width_chars">10</property>
               </object>
               <packing>
@@ -433,7 +433,7 @@
             </child>
             <child>
               <object class="GtkButton">
-                <property name="label" translatable="yes">crypt</property>
+                <property name="label" translatable="yes">encrypt</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -505,7 +505,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">public key</property>
+            <property name="label" translatable="yes">master key</property>
           </object>
           <packing>
             <property name="expand">False</property>
